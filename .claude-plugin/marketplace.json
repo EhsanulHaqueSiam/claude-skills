@@ -5,7 +5,7 @@
     {
       "name": "agent-harness",
       "source": "./plugins/agent-harness",
-      "description": "Loop-engineer harness: setup-codebase-harness, dev-local-setup, e2e-setup, verifier-setup, new-loop, visual-flow-gif, and crabbox-setup targeting a static-SSH VPS (no Daytona)."
+      "description": "Loop-engineer harness: setup-codebase-harness, dev-local-setup, e2e-setup, verifier-setup, new-loop, visual-flow-gif, agent-context-audit, open-agent-teams, seo-growth, and crabbox-setup targeting a static-SSH VPS (no Daytona)."
     },
     {
       "name": "siam-skills",
