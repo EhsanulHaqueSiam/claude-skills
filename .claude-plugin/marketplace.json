@@ -3,8 +3,8 @@
   "owner": { "name": "Ehsanul Haque Siam", "url": "https://github.com/EhsanulHaqueSiam" },
   "plugins": [
     {
-      "name": "agent-harness",
-      "source": "./plugins/agent-harness",
+      "name": "harness",
+      "source": "./plugins/harness",
       "description": "Loop-engineer harness (all 10 AI Builder Club skills, MIT) with crabbox ported to a static-SSH Hetzner VPS — no Daytona."
     },
     {

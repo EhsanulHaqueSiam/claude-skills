@@ -6,11 +6,11 @@ Siam's Claude Code skills, packaged as a plugin marketplace.
 
 ```
 /plugin marketplace add EhsanulHaqueSiam/claude-skills
-/plugin install agent-harness@siam    # loop-engineer harness (10 skills, Hetzner port)
+/plugin install harness@siam    # loop-engineer harness (10 skills, Hetzner port)
 /plugin install siam-skills@siam      # hand-picked personal skills
 ```
 
-## agent-harness
+## harness
 
 All 10 skills from [AI-Builder-Club/skills](https://github.com/AI-Builder-Club/skills)
 (MIT), with the crabbox ecosystem ported from Daytona snapshots to a persistent
