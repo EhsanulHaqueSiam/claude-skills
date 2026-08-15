@@ -1,0 +1,7 @@
+{
+  "name": "agent-harness",
+  "version": "1.0.0",
+  "description": "AI Builder Club loop-engineer skills (MIT), crabbox ported from Daytona to a static-SSH Hetzner VPS: rootless docker, persistent toolchain, same cbx.sh interface.",
+  "author": { "name": "Ehsanul Haque Siam" },
+  "license": "MIT"
+}

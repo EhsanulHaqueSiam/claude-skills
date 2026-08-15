@@ -3,9 +3,14 @@
   "owner": { "name": "Ehsanul Haque Siam", "url": "https://github.com/EhsanulHaqueSiam" },
   "plugins": [
     {
+      "name": "agent-harness",
+      "source": "./plugins/agent-harness",
+      "description": "Loop-engineer harness (all 10 AI Builder Club skills, MIT) with crabbox ported to a static-SSH Hetzner VPS — no Daytona."
+    },
+    {
       "name": "siam-skills",
       "source": "./plugins/siam-skills",
-      "description": "Siam's skill collection: design/frontend taste, animations, SEO, Cloudflare, workflow and utility skills."
+      "description": "Siam's hand-picked skills: html-communication, babysit-pr, file-pr, file-upload, dogfood, gpt-taste."
     }
   ]
 }
