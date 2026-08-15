@@ -1,0 +1,6 @@
+{
+  "name": "agent-harness",
+  "version": "1.0.0",
+  "description": "Harness skills for agent-driven development: legible, executable, verifiable repos — with cloud parallel loops on a static-SSH box.",
+  "author": { "name": "Ehsanul Haque Siam" }
+}
