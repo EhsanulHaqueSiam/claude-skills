@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 # host-prep.sh — ONE-TIME root prep of a fresh VPS as a crabbox static-SSH box.
 # This replaces the Daytona Dockerfile: the box persists, so tools install once.
-# Already applied to 46.62.232.186 (2026-08-15) — run only on a NEW box.
-# Run as root. Idempotent.
+# Run as root on the box. Idempotent.
 set -euo pipefail
-GH_USER=EhsanulHaqueSiam
+GH_USER="${1:?usage: host-prep.sh <github-username>   (whose keys ssh-import-id authorizes)}"
 export DEBIAN_FRONTEND=noninteractive
 
 # runner user — NO sudo, NO docker group; isolation from anything else on the box

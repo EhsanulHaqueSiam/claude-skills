@@ -23,11 +23,14 @@ READY_MARKER="STACK READY"
 # secrets in env.allow are forwarded from your SHELL. We source .env so they're set.
 [ -f .env ] && { set -a; . ./.env; set +a; }
 [ -f .env.local ] && { set -a; . ./.env.local; set +a; }
-# ── static box constants (same for every repo; config lives in .crabbox.yaml) ─
-SSH_ALIAS=crabbox                    # ~/.ssh/config alias → crabbox@46.62.232.186
-export CRABBOX_STATIC_HOST=46.62.232.186   # explicit approval of the credential destination
+# ── static box (EDIT once; must match ~/.config/crabbox/config.yaml) ────────
+BOX_HOST="${CRABBOX_BOX_HOST:-}"     # EDIT: your VPS IP/hostname, e.g. 203.0.113.7
+SSH_ALIAS="${CRABBOX_SSH_ALIAS:-crabbox}"  # ~/.ssh/config alias → <runner-user>@$BOX_HOST
+[ -n "$BOX_HOST" ] || { echo "✗ set BOX_HOST in cbx.sh (or CRABBOX_BOX_HOST env)" >&2; exit 1; }
+export CRABBOX_STATIC_HOST="$BOX_HOST"     # explicit approval of the credential destination
+BOX_ID="${BOX_HOST//./-}"
 REPO="$(basename "$(pwd)")"
-BOX_DIR="work/static_46-62-232-186/${REPO}"   # repo workdir, relative to the box $HOME
+BOX_DIR="work/static_${BOX_ID}/${REPO}"    # repo workdir, relative to the box $HOME
 # ────────────────────────────────────────────────────────────────────────────
 
 CMD="${1:-}"; NAME="${2:-demo}"
@@ -64,7 +67,7 @@ down)
     [ -f /tmp/dev-${REPO}.pid ] && { kill -- -\$(cat /tmp/dev-${REPO}.pid) 2>/dev/null || true; rm -f /tmp/dev-${REPO}.pid; }
     cd ~/${BOX_DIR} 2>/dev/null && docker compose -p '${REPO}' down 2>/dev/null || true
     echo '✓ ${REPO} stopped (files kept for fast re-sync; wipe: rm -rf ~/${BOX_DIR})'"
-  crabbox stop --id 46-62-232-186 2>/dev/null | tail -1 || true
+  crabbox stop --id "$BOX_ID" 2>/dev/null | tail -1 || true
   ;;
 
 *)      echo "usage: bash cbx.sh {up|logs|tunnel|pw|get|down} <name>"; exit 1 ;;

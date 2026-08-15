@@ -3,7 +3,7 @@
 # NOTE: the box identity (static.host/user/workRoot, ssh.key) deliberately does
 # NOT live here — crabbox refuses repo-configured SSH hosts (a cloned repo must
 # not be able to point your key at a stranger's box). It lives in the user
-# config ~/.config/crabbox/config.yaml, and cbx.sh also exports
+# config ~/.config/crabbox/config.yaml (see SKILL.md Step 0), and cbx.sh exports
 # CRABBOX_STATIC_HOST as explicit approval.
 provider: ssh
 target: linux

@@ -28,8 +28,15 @@ setup-codebase-harness         master skill — orchestrates the rest
 Standalone (no pipeline): agent-context-audit, open-agent-teams, visual-flow-gif,
 seo-growth.
 
-To use crabbox-setup on your own server: run `skills/crabbox-setup/assets/host-prep.sh`
-as root there, then point `~/.config/crabbox/config.yaml` + an ssh alias at it.
+**Bring your own VPS** — no box is baked in. On first use, `crabbox-setup` asks
+for your VPS IP and GitHub username, then sets everything up automatically and
+idempotently: installs the crabbox CLI locally, preps the box via its
+`host-prep.sh` (dedicated no-sudo runner user, SSH keys imported from your
+GitHub, rootless docker, Chrome, node/pnpm, playwright-cli), writes your
+`~/.ssh/config` alias and `~/.config/crabbox/config.yaml`, and verifies
+end-to-end. Root access on the box is needed once, for the prep. Re-running is
+always safe — it only creates what's missing.
+
 `open-agent-teams` needs tmux; `visual-flow-gif` installs Pillow on first use.
 
 ## siam-skills
